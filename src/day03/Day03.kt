@@ -1,4 +1,4 @@
-fun Any.log() {
+fun Any?.log() {
     val debug = false
     if (debug) {
         this.println()
@@ -177,26 +177,26 @@ fun Grid.extractAdjacentToPoint(point: Point): List<Int> {
     }
 }
 
-fun part1(input: List<String>): Int {
-    val grid = input.toGrid()
-    return input.mapIndexed { lineIndex, line ->
-        line.extractValidNumbersSum(grid, lineIndex)
-    }.also{it.log()}.sum()
-}
-
-fun part2(input: List<String>): Int {
-    val grid = input.toGrid()
-    val allStars = grid.extractAllStarPositions()
-    return allStars
-        .associateWith { grid.extractAllAdjacentNumbers(it) }
-        .also { it.log() }
-        .filter { it.value.size == 2 }
-        .also { it.log() }
-        .map { it.value.fold(1) { total, next -> total * next} }
-        .sum()
-}
-
 fun main() {
+
+    fun part1(input: List<String>): Int {
+        val grid = input.toGrid()
+        return input.mapIndexed { lineIndex, line ->
+            line.extractValidNumbersSum(grid, lineIndex)
+        }.also{it.log()}.sum()
+    }
+
+    fun part2(input: List<String>): Int {
+        val grid = input.toGrid()
+        val allStars = grid.extractAllStarPositions()
+        return allStars
+            .associateWith { grid.extractAllAdjacentNumbers(it) }
+            .also { it.log() }
+            .filter { it.value.size == 2 }
+            .also { it.log() }
+            .map { it.value.fold(1) { total, next -> total * next} }
+            .sum()
+    }
 
     val testInput = readInput("Day03/Day03_test")
     check(part1(testInput) == 4361)
