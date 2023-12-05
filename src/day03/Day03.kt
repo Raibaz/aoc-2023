@@ -1,5 +1,5 @@
 fun Any?.log() {
-    val debug = false
+    val debug = true
     if (debug) {
         this.println()
     }
