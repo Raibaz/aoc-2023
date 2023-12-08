@@ -82,7 +82,7 @@ fun doPart(input: List<String>, handClass: KClass<*>): Long {
 }
 
 fun main() {
-    
+
     fun part1(input: List<String>) = doPart(input, Hand::class)
 
     fun part2(input: List<String>) = doPart(input, HandPart2::class)
