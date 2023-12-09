@@ -55,16 +55,16 @@ fun main() {
         return nodes.filter { it.label().endsWith("A") }.map { nodes.stepsFromStart(it.label(), directions) }.reduce(::lcm)
     }
 
-    val testInput = readInput("Day08/Day08_test")
+    val testInput = readInput("day08/Day08_test")
     check(part1(testInput) == 2L)
 
-    val testInput2 = readInput("Day08/Day08_test2")
+    val testInput2 = readInput("day08/Day08_test2")
     check(part1(testInput2) == 6L)
 
-    val input = readInput("Day08/Day08")
+    val input = readInput("day08/Day08")
     part1(input).println()
 
-    val testInput3 = readInput("Day08/Day08_test3")
+    val testInput3 = readInput("day08/Day08_test3")
 
     check(part2(testInput3) == 6L)
     part2(input).println()
