@@ -15,7 +15,7 @@ class SpaceGrid(private var cells: MutableList<MutableList<SpaceCell>>) {
 
 fun List<SpaceCell>.distances(emptyRows: List<Int>, emptyCols: List<Int>, expansionFactor: Long = 1): Long {
     val allDistances = this.flatMap { first ->
-        this.map { second ->
+        this.filter { it != first }.map { second ->
             first to second
         }
     }.sumOf { pair ->
@@ -24,7 +24,7 @@ fun List<SpaceCell>.distances(emptyRows: List<Int>, emptyCols: List<Int>, expans
         val expansionFactorX = expansionFactor * (min(pair.first.row, pair.second.row)..max(pair.first.row, pair.second.row)).count { it in emptyRows }
         val expansionFactorY = expansionFactor * (min(pair.first.col, pair.second.col) .. max(pair.first.col, pair.second.col)).count { it in emptyCols }
         val distance = xDist + yDist + expansionFactorX + expansionFactorY
-        "(${pair.first.row}, ${pair.first.col}) and (${pair.second.row}, ${pair.second.col}) have distance $distance".log()
+        //"(${pair.first.row}, ${pair.first.col}) and (${pair.second.row}, ${pair.second.col}) have distance $distance".log()
         distance
     }
 
@@ -61,4 +61,5 @@ fun main() {
     check(part2(testInput, 9) == 1030L)
     check(part2(testInput, 99) == 8410L)
     part2(input, 999999).println()
+    check(part2(input, 999999) == 593821230983L)
 }
