@@ -218,6 +218,6 @@ fun main() {
 
     val input = readInput("day10/Day10")
     part1(input).println()
-    
+
     part2(input).println()
 }
