@@ -53,6 +53,7 @@ fun main() {
     part1(input).println()
     check(part1(input) == 519603L)
 
-    //check(part2(testInput) == 145L)
+    check(part2(testInput) == 145L)
     part2(input).println()
+    check(part2(input) == 244342L)
 }
